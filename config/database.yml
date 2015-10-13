@@ -8,7 +8,11 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  url: <%= ENV['DATABASE_URL'] %>
+  url: 'postgres://root:2YQFGkZNwFGZMMRt@172.17.42.1:32769/db'
+  password: '2YQFGkZNwFGZMMRt'
+  user: 'root'
+  port: 32769
+  host: 172.17.42.1
 
 development:
   <<: *default
