@@ -13,6 +13,25 @@
 
 ActiveRecord::Schema.define(version: 20151013122013) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "borrower", force: :cascade do |t|
+    t.float "active"
+  end
+
+  create_table "customer", force: :cascade do |t|
+    t.string "name",  limit: 1000, null: false
+    t.string "email"
+  end
+
+  add_index "customer", ["email"], name: "customer_email_key", unique: true, using: :btree
+
+  create_table "customers", force: :cascade do |t|
+    t.string  "name"
+    t.integer "age"
+  end
+
   create_table "todo_lists", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
